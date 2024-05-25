@@ -416,7 +416,7 @@ def load_url_file(fpath: str) -> List[str]:
 
 
 def print_menu() -> None:
-    print("╔══════════════════════════════════════════════════════════════════════════════════════════════════════╗")
+    print("╔═══════════════════════════════════════════════════════════════════════QuarkPanFileManager═══════════════════════════════╗")
     print("║                                  Author: Hmily  Version: 0.0.2                                       ║")
     print("║                          GitHub: https://github.com/ihmily/QuarkPanTool                              ║")
     print("╠══════════════════════════════════════════════════════════════════════════════════════════════════════╣")
@@ -451,11 +451,11 @@ if __name__ == '__main__':
                         continue
 
                     custom_print(f"\r检测到url.txt文件中有{len(urls)}条分享链接")
-                    ok = input("请你确认是否开始批量保存(确认请按2):")
-                    if ok and ok.strip() == '2':
-                        for index, url in enumerate(urls):
-                            print(f"正在转存第{index + 1}个")
-                            asyncio.run(quark_file_manager.run(url.strip(), to_dir_id))
+                    # ok = input("请你确认是否开始批量保存(确认请按2):")
+                    # if ok and ok.strip() == '2':
+                    for index, url in enumerate(urls):
+                        print(f"正在转存第{index + 1}个")
+                        asyncio.run(quark_file_manager.run(url.strip(), to_dir_id))
                 except FileNotFoundError:
                     with open('url.txt', 'w', encoding='utf-8'):
                         sys.exit(-1)
